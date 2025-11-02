@@ -1,18 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jan Mandel – Curriculum Vitae</title>
-  <meta name="description" content="Curriculum Vitae of Jan Mandel, research in mathematics and wildfires.">
-  <meta name="robots" content="index, follow">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jan Mandel — Professor Emeritus</title>
+  <meta name="description" content="Jan Mandel, Professor Emeritus of Mathematical and Statistical Sciences at CU Denver. Wildfire modeling, data assimilation, domain decomposition, and HPC." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3EJM%3C/text%3E%3C/svg%3E" />
   <style>
-    body { font-family: system-ui, sans-serif; text-align: center; margin-top: 10%; }
-    a { color: #0645ad; text-decoration: none; font-weight: bold; }
-    a:hover { text-decoration: underline; }
+    :root{--bg:#fff;--fg:#0f172a;--muted:#475569;--card:#f8fafc;--link:#1d4ed8;--border:#e2e8f0}
+    @media (prefers-color-scheme: dark){:root{--bg:#0b1220;--fg:#e5e7eb;--muted:#94a3b8;--card:#0f172a;--link:#93c5fd;--border:#1f2937}}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    a{color:var(--link);text-decoration:none}
+    a:focus, a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:24px}
+    header{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 0 8px}
+    .avatar{width:72px;height:72px;border-radius:50%;background:var(--card);display:grid;place-items:center;border:1px solid var(--border);font-weight:700}
+    .title h1{margin:0;font-size:clamp(1.4rem,2.5vw,2rem)}
+    .title p{margin:4px 0 0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
+    h2{margin:.2rem 0 .6rem;font-size:1.05rem}
+    ul{margin:0;padding-left:20px}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .badge{border:1px solid var(--border);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:.85rem;color:var(--muted)}
+    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg)}
+    .btn.primary{background:var(--link);color:#fff;border-color:transparent}
+    footer{color:var(--muted);font-size:.9rem;margin:24px 0 8px}
+    .list-tight li{margin:6px 0}
+    .note{font-size:.9rem;color:var(--muted)}
   </style>
 </head>
 <body>
-  <h1>Jan Mandel</h1>
-  <p><a href="Jan-Mandel-math-wildfires-full-CV.pdf">📄 View Curriculum Vitae (PDF)</a></p>
+  <div class="wrap">
+    <header>
+      <div class="avatar" aria-hidden="true">JM</div>
+      <div class="title">
+        <h1>Jan Mandel</h1>
+        <p>Professor Emeritus, Mathematical &amp; Statistical Sciences, University of Colorado Denver</p>
+        <div class="badges" aria-label="areas of work">
+          <span class="badge">Wildfire modeling</span>
+          <span class="badge">Data assimilation</span>
+          <span class="badge">Domain decomposition</span>
+          <span class="badge">Algebraic multigrid</span>
+          <span class="badge">HPC</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="https://scholar.google.com/citations?user=3vx_7UgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="btn" href="Jan-Mandel-math-wildfires-full-CV.pdf" target="_blank" rel="noopener">Full CV (PDF)</a>
+          <a class="btn" href="https://github.com/janmandel" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/janmandel/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section aria-labelledby="about">
+        <h2 id="about">About</h2>
+        <p>
+          Research in applied and computational mathematics with applications to wildland fire behavior and coupled atmosphere–fire modeling. Developer and collaborator on WRF‑Fire/WRF‑SFIRE and related data assimilation methods.
+        </p>
+        <p class="note">For a complete record, see the CV and Google Scholar.</p>
+      </section>
+
+      <section aria-labelledby="contact">
+        <h2 id="contact">Contact</h2>
+        <ul class="list-tight">
+          <li>Email: <a href="mailto:jan.mandel@ucdenver.edu">jan.mandel@ucdenver.edu</a></li>
+          <li>ORCID: <a href="https://orcid.org/0000-0002-8489-5766" target="_blank" rel="noopener">0000-0002-8489-5766</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/janmandel/" target="_blank" rel="noopener">linkedin.com/in/janmandel</a></li>
+          <li>CU Denver profile: <a href="https://clas.ucdenver.edu/mathematical-and-statistical-sciences/jan-mandel" target="_blank" rel="noopener">Department page</a></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="news">
+        <h2 id="news">Selected news</h2>
+        <ul class="list-tight">
+          <li>2025 · <a href="https://news.ucdenver.edu/wildfires-are-changing-the-air-we-breathe-heres-what-that-means-for-your-health/" target="_blank" rel="noopener">Wildfires and the air we breathe</a> · CU Denver News</li>
+          <li>2025 · <a href="https://clas.ucdenver.edu/newsroom/2025/08/08/congratulations-professor-emeritus-jan-mandel" target="_blank" rel="noopener">Widlund Prize announcement</a> · CLAS Newsroom</li>
+          <li>2022 · <a href="https://news.ucdenver.edu/clas-professor-jan-mandel-ranks-among-worlds-top-mathematics-scientists/" target="_blank" rel="noopener">Top mathematics scientist feature</a> · CU Denver News</li>
+          <li>2020 · <a href="https://www.cisl.ucar.edu/news/cheyenne-supports-active-wildfire-research-fires-burn" target="_blank" rel="noopener">Cheyenne supports active wildfire research</a> · NCAR CISL</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="links">
+        <h2 id="links">Key links</h2>
+        <ul class="list-tight">
+          <li><a href="https://wrf-fire.github.io/" target="_blank" rel="noopener">WRF‑Fire / WRF‑SFIRE</a> (project site)</li>
+          <li><a href="https://janmandel.github.io/public/" target="_blank" rel="noopener">This site on GitHub Pages</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span id="y"></span> Jan Mandel. This page is a single static file and loads without external dependencies.
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
