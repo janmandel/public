@@ -1,106 +1,178 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jan Mandel — Professor Emeritus</title>
+  <title>Jan Mandel - Professor Emeritus</title>
   <meta name="description" content="Jan Mandel, Professor Emeritus of Mathematical and Statistical Sciences at CU Denver. Wildfire modeling, data assimilation, domain decomposition, and HPC." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3EJM%3C/text%3E%3C/svg%3E" />
   <style>
-    :root{--bg:#fff;--fg:#0f172a;--muted:#475569;--card:#f8fafc;--link:#1d4ed8;--border:#e2e8f0}
-    @media (prefers-color-scheme: dark){:root{--bg:#0b1220;--fg:#e5e7eb;--muted:#94a3b8;--card:#0f172a;--link:#93c5fd;--border:#1f2937}}
-    html,body{height:100%}
-    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
-    a{color:var(--link);text-decoration:none}
-    a:focus, a:hover{text-decoration:underline}
-    .wrap{max-width:980px;margin:0 auto;padding:24px}
-    header{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 0 8px}
-    .avatar{width:72px;height:72px;border-radius:50%;background:var(--card);display:grid;place-items:center;border:1px solid var(--border);font-weight:700}
-    .title h1{margin:0;font-size:clamp(1.4rem,2.5vw,2rem)}
-    .title p{margin:4px 0 0;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}
-    h2{margin:.2rem 0 .6rem;font-size:1.05rem}
-    ul{margin:0;padding-left:20px}
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .badge{border:1px solid var(--border);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:.85rem;color:var(--muted)}
-    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg)}
-    .btn.primary{background:var(--link);color:#fff;border-color:transparent}
-    footer{color:var(--muted);font-size:.9rem;margin:24px 0 8px}
-    .list-tight li{margin:6px 0}
-    .note{font-size:.9rem;color:var(--muted)}
+    /* Separate button colors preserve readable contrast in both color schemes. */
+    :root {
+      color-scheme: light dark;
+      --bg: #faf9f6; --fg: #182c43; --muted: #536172;
+      --link: #205e92; --border: #d6dce1; --panel: #f0f3f5;
+      --button: #205e92; --button-text: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101923; --fg: #edf1f5; --muted: #afbac7;
+        --link: #a3cdf5; --border: #344353; --panel: #192633;
+        --button: #a3cdf5; --button-text: #101923;
+      }
+    }
+
+    /* Flexible tracks and wrapping keep long profile links within small screens. */
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 system-ui, -apple-system, Segoe UI, sans-serif; }
+    .wrap { max-width: 1100px; margin: auto; padding: 0 40px; }
+    a { color: var(--link); text-underline-offset: .2em; overflow-wrap: anywhere; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid var(--link); outline-offset: 5px; border-radius: 2px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+    h1 { margin-bottom: 12px; font-size: clamp(3rem, 7vw, 5.2rem); line-height: 1.1; letter-spacing: -.035em; }
+    h2 { margin-bottom: 28px; font-size: 2rem; line-height: 1.2; }
+    h3 { margin-bottom: 12px; font-size: 1.1rem; line-height: 1.4; }
+    .eyebrow { margin-bottom: 22px; color: var(--muted); font-size: .78rem; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
+    .meta { color: var(--muted); font-size: .88rem; }
+
+    /* The introduction establishes the person, research focus, and main links. */
+    header { padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
+    .roles { margin-bottom: 4px; font-size: 1rem; }
+    .affiliation { color: var(--muted); }
+    .intro { max-width: 730px; margin: 28px 0; font-size: clamp(1.25rem, 3vw, 1.6rem); line-height: 1.5; }
+    .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .btn { display: inline-block; padding: 11px 19px; border: 1px solid var(--border); border-radius: 5px; font-weight: 600; text-decoration: none; }
+    .btn:hover { text-decoration: underline; }
+    .btn.primary { background: var(--button); color: var(--button-text); border-color: var(--button); }
+
+    /* Research uses three equal columns; news has more space than resource links. */
+    .research { padding: 44px 0; border-bottom: 1px solid var(--border); }
+    .research-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+    .research-grid ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .research-grid li + li { margin-top: 8px; }
+    .updates { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 56px; padding: 44px 0; }
+    .news-list, .resource-list, .profiles { list-style: none; padding: 0; margin: 0; }
+    .news-list li { padding: 17px 0; border-top: 1px solid var(--border); }
+    .news-list li:first-child { padding-top: 0; border-top: 0; }
+    .news-list a { font-weight: 550; }
+    .news-list .meta { display: block; margin-top: 3px; }
+    .resources { align-self: start; padding: 26px; background: var(--panel); border-radius: 6px; }
+    .resources h2 { font-size: 1.6rem; margin-bottom: 20px; }
+    .resource-list li + li { margin-top: 16px; }
+    .contact { padding: 36px 0; border-top: 1px solid var(--border); }
+    .contact h2 { margin-bottom: 16px; }
+    .email { margin-bottom: 18px; font-size: 1.2rem; }
+    .profiles { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+    footer { padding: 20px 0 28px; border-top: 1px solid var(--border); color: var(--muted); font-size: .85rem; }
+
+    /* Stack content in reading order on phones and when the browser is zoomed. */
+    @media (max-width: 760px) {
+      .wrap { padding: 0 24px; }
+      header { padding: 40px 0 32px; }
+      .research-grid, .updates { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      .research, .updates { padding: 32px 0; }
+      h2 { font-size: 1.75rem; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="avatar" aria-hidden="true">JM</div>
-      <div class="title">
-        <h1>Jan Mandel</h1>
-        <p>Professor Emeritus, Research Professor, HPC System Administrator</p>
-        <p>Mathematical &amp; Statistical Sciences, University of Colorado Denver</p>
-        <div class="badges" aria-label="areas of work">
-          <span class="badge">Wildfire Modeling</span>
-          <span class="badge">Data Assimilation</span>
-          <span class="badge">Domain Decomposition</span>
-          <span class="badge">Multigrid Methods</span>
-          <span class="badge">High Performace Computing</span>
-        </div>
-        <div class="cta">
-          <a class="btn" href="https://scholar.google.com/citations?user=3vx_7UgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-          <a class="btn" href="https://mathgenealogy.org/id.php?id=22731" target="_blank" rel="noopener">Math Genealogy</a> 
-          <a class="btn" href="jmvita.pdf" target="_blank" rel="noopener">Full CV (PDF)</a>
-        </div>
+      <!-- Keep the full roles and affiliation alongside the shorter introduction. -->
+      <p class="eyebrow">University of Colorado Denver</p>
+      <h1>Jan Mandel</h1>
+      <p class="roles">Professor Emeritus, Research Professor, HPC System Administrator</p>
+      <p class="affiliation">Mathematical &amp; Statistical Sciences</p>
+      <p class="intro">I work on computational mathematics, wildfire modeling, and data assimilation.</p>
+      <div class="cta">
+        <a class="btn primary" href="jmvita.pdf" target="_blank" rel="noopener">Full CV (PDF)</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=3vx_7UgAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </header>
 
-    <main class="grid">
-      <section aria-labelledby="about">
-        <h2 id="about">About</h2>
-        <p>
-          Applied and computational mathematics ·
-          Machine Learning ·
-          Coupled atmosphere–fire modeling ·
-          WRF‑Fire/WRF‑SFIRE · Data assimilation · 
-          Convergence of the Ensemble Kalman Filter ·
-          Multigrid Methods · Smoothed Aggregation Algebraic Multigrid ·
-          Balancing Domain Decomposition · BDDC ·
-          Iterative solvers for p-Version finite elements 
-        </p>
+    <main>
+      <section class="research" aria-labelledby="about">
+        <h2 id="about">Research interests</h2>
+        <!-- Group the existing topics without dropping the specific methods. -->
+        <div class="research-grid">
+          <div>
+            <h3>Applied &amp; computational mathematics</h3>
+            <ul>
+              <li>Domain decomposition: Balancing Domain Decomposition and BDDC</li>
+              <li>Multigrid methods and Smoothed Aggregation Algebraic Multigrid</li>
+              <li>Iterative solvers for p-Version finite elements</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Wildfire modeling</h3>
+            <ul>
+              <li>Coupled atmosphere-fire modeling</li>
+              <li>WRF-Fire / WRF-SFIRE</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Data assimilation &amp; machine learning</h3>
+            <ul>
+              <li>Convergence of the Ensemble Kalman Filter</li>
+              <li>Machine learning</li>
+              <li>High Performance Computing</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
-      <section aria-labelledby="contact">
-        <h2 id="contact">Contact</h2>
-        <ul class="list-tight">
-          <li>Email: <a href="mailto:jan.mandel@ucdenver.edu">jan.mandel@ucdenver.edu</a></li>
-          <li>ORCID: <a href="https://orcid.org/0000-0002-8489-5766" target="_blank" rel="noopener">0000-0002-8489-5766</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/janmandel/" target="_blank" rel="noopener">linkedin.com/in/janmandel</a></li>
-          <li>CU Denver profile: <a href="https://clas.ucdenver.edu/mathematical-and-statistical-sciences/jan-mandel" target="_blank" rel="noopener">Department page</a></li>
-          <li>GitHub: <a href="https://github.com/janmandel"  target="_blank" rel="noopener">https://github.com/janmandel</a></li>
+      <!-- News precedes resources in the document and in the mobile layout. -->
+      <div class="updates">
+        <section aria-labelledby="news">
+          <h2 id="news">Selected news</h2>
+          <ul class="news-list">
+            <li>
+              <a href="https://news.ucdenver.edu/wildfires-are-changing-the-air-we-breathe-heres-what-that-means-for-your-health/" target="_blank" rel="noopener">Wildfires and the air we breathe</a>
+              <span class="meta"><time datetime="2025">2025</time> / CU Denver News</span>
+            </li>
+            <li>
+              <a href="https://clas.ucdenver.edu/newsroom/2025/08/08/congratulations-professor-emeritus-jan-mandel" target="_blank" rel="noopener">Widlund Prize announcement</a>
+              <span class="meta"><time datetime="2025">2025</time> / CLAS Newsroom</span>
+            </li>
+            <li>
+              <a href="https://news.ucdenver.edu/clas-professor-jan-mandel-ranks-among-worlds-top-mathematics-scientists/" target="_blank" rel="noopener">Top mathematics scientist feature</a>
+              <span class="meta"><time datetime="2022">2022</time> / CU Denver News</span>
+            </li>
+            <li>
+              <a href="https://www.cisl.ucar.edu/news/cheyenne-supports-active-wildfire-research-fires-burn" target="_blank" rel="noopener">Cheyenne supports active wildfire research</a>
+              <span class="meta"><time datetime="2020">2020</time> / NCAR</span>
+            </li>
+            <li>
+              <a href="https://www.nasa.gov/centers-and-facilities/armstrong/fire-forecasting-goes-into-the-wild" target="_blank" rel="noopener">Fire Forecasting Goes Into the Wild</a>
+              <span class="meta"><time datetime="2019">2019</time> / NASA</span>
+            </li>
           </ul>
-      </section>
+        </section>
 
-      <section aria-labelledby="news">
-        <h2 id="news">Selected news</h2>
-        <ul class="list-tight">
-          <li>2025 · <a href="https://news.ucdenver.edu/wildfires-are-changing-the-air-we-breathe-heres-what-that-means-for-your-health/" target="_blank" rel="noopener">Wildfires and the air we breathe</a> · CU Denver News</li>
-          <li>2025 · <a href="https://clas.ucdenver.edu/newsroom/2025/08/08/congratulations-professor-emeritus-jan-mandel" target="_blank" rel="noopener">Widlund Prize announcement</a> · CLAS Newsroom</li>
-          <li>2022 · <a href="https://news.ucdenver.edu/clas-professor-jan-mandel-ranks-among-worlds-top-mathematics-scientists/" target="_blank" rel="noopener">Top mathematics scientist feature</a> · CU Denver News</li>
-          <li>2020 · <a href="https://www.cisl.ucar.edu/news/cheyenne-supports-active-wildfire-research-fires-burn" target="_blank" rel="noopener">Cheyenne supports active wildfire research</a> · NCAR</li>
-          <li>2019 · <a href="https://www.nasa.gov/centers-and-facilities/armstrong/fire-forecasting-goes-into-the-wild" target="_blank" rel="noopener">Fire Forecasting Goes Into the Wild</a> · NASA</li>
-        </ul>
-      </section>
+        <section class="resources" aria-labelledby="links">
+          <h2 id="links">Research resources</h2>
+          <ul class="resource-list">
+            <li><a href="https://wiki.openwfm.org/wiki/WRF-SFIRE_user_guide" target="_blank" rel="noopener">WRF-Fire / WRF-SFIRE</a></li>
+            <li><a href="https://demo.openwfm.org" target="_blank" rel="noopener">WRF-SFIRE visualizations</a></li>
+            <li><a href="https://ccm-docs.readthedocs.io" target="_blank" rel="noopener">Alderaan High Performance Computing Cluster</a></li>
+            <li><a href="mandel-dd29.pdf" target="_blank" rel="noopener">Draft of Widlund Prize Paper</a></li>
+          </ul>
+        </section>
+      </div>
 
-      <section aria-labelledby="links">
-        <h2 id="links">Links</h2>
-        <ul class="list-tight">
-          <li><a href="https://wiki.openwfm.org/wiki/WRF-SFIRE_user_guide" target="_blank" rel="noopener">WRF-Fire / WRF-SFIRE</a></li>
-          <li><a href="https://demo.openwfm.org" target="_blank" rel="noopener">WRF-SFIRE visualizations</a></li>
-          <li><a href="https://ccm-docs.readthedocs.io" target="_blank" rel="noopener">Alderaan High Performance Computing Cluster</a></li>
+      <!-- Profile links share one contact area so the opening stays focused. -->
+      <section class="contact" aria-labelledby="contact">
+        <h2 id="contact">Contact &amp; profiles</h2>
+        <p class="email"><a href="mailto:jan.mandel@ucdenver.edu">jan.mandel@ucdenver.edu</a></p>
+        <ul class="profiles">
+          <li><a href="https://clas.ucdenver.edu/mathematical-and-statistical-sciences/jan-mandel" target="_blank" rel="noopener">CU Denver profile</a></li>
+          <li><a href="https://orcid.org/0000-0002-8489-5766" target="_blank" rel="noopener">ORCID: 0000-0002-8489-5766</a></li>
+          <li><a href="https://mathgenealogy.org/id.php?id=22731" target="_blank" rel="noopener">Math Genealogy</a></li>
+          <li><a href="https://www.linkedin.com/in/janmandel/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/janmandel" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://en.wikipedia.org/wiki/Jan_Mandel" target="_blank" rel="noopener">Wikipedia</a></li>
-          <li><a href="mandel-dd29.pdf" target="_blank" rel="noopener">Draft of Widlund Prize Paper</a></li>
         </ul>
       </section>
     </main>
@@ -109,6 +181,9 @@
       &copy; <span id="y"></span> Jan Mandel.
     </footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+    // Keep the copyright year current without a build step.
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
